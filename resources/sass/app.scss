@@ -1,0 +1,104 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+.container {
+    width: 1280px;
+    flex: 1 0 auto;
+    margin: 0px auto;
+    font-family: 'Baloo Bhaina 2', cursive;
+    max-width: 1280px;
+    padding: 0;
+}
+@media (min-width: 1200px) {
+     .container {
+        max-width: 1280px;
+    }
+}
+
+.btn {
+    font-weight: 500;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    cursor: pointer;
+    transition-property: border-color, background, color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+    color: $orange;
+    outline: none;
+    border-radius: 8px;
+    padding: 0px 12px;
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    border-width: 1px;
+    border-style: solid;
+    border-color: $orange;
+    border-image: initial;
+
+    &:hover {
+        color: $orange-hover;
+        background: rgb(255, 255, 255);
+        border-color: $orange-hover;
+    }
+
+    &.active {
+        background: $orange;
+        color: white;
+    }
+
+    &-small{
+        height: 30px;
+        line-height: 30px;
+    }
+    &-fill{
+        background: $orange;
+        color: white;
+    }
+
+    &-gray {
+        color: $gray;
+        border-color: $gray;
+        &:hover {
+            border-color: $gray;
+            color: black;
+        }
+        &.active {
+            background: $gray;
+            color: white;
+            cursor: default;
+            &:hover {
+                color: white;
+
+            }
+        }
+    }
+}
+.btn__group {
+    display: flex;
+    .btn {
+        width: 100%;
+        border-radius: 0;
+        border-left-width: 0px;
+
+        &:first-child {
+            border-radius: 8px 0 0 8px;
+            border-left-width: 1px;
+        }
+        &:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+    }
+
+}
+
+body {
+    padding-top: 50px;
+}
