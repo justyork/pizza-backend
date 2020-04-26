@@ -13,5 +13,5 @@ yarn-error.log
 /resources/js/*
 .idea
 .idea/
-!/storage/app/public/images
+!/resources/images/images
 !/storage/app/public/products
