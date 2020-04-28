@@ -10,7 +10,7 @@ namespace App\Cart\storage;
 
 use App\Cart\BaseCart;
 use App\Cart\CartItem;
-use App\Cart\Product;
+use App\Cart\ProductInterface;
 
 abstract class CartStorageBase extends BaseCart
 {
@@ -30,11 +30,11 @@ abstract class CartStorageBase extends BaseCart
 
     /**
      * @param int $storage_id
-     * @param Product $product
+     * @param ProductInterface $product
      * @param $count
      * @return StorageProductInterface
      */
-    abstract protected function createStorageItem(int $storage_id, Product $product, $count): StorageProductInterface;
+    abstract protected function createStorageItem(int $storage_id, ProductInterface $product, $count): StorageProductInterface;
 
     /**
      * Load storage
@@ -70,7 +70,7 @@ abstract class CartStorageBase extends BaseCart
     }
 
     /**
-     * @return \App\Cart\Delivery
+     * @return \App\Cart\DeliveryInterface
      */
     public function getDelivery()
     {

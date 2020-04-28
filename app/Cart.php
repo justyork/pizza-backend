@@ -8,7 +8,7 @@
 namespace App;
 
 
-use App\Cart\Product;
+use App\Cart\ProductInterface;
 use App\Cart\storage\CartStorageInterface;
 use App\Cart\storage\StorageProductInterface;
 use App\Helpers\PriceHelper;
@@ -72,7 +72,7 @@ class Cart extends \App\Cart\storage\CartStorage
     /**
      * @inheritDoc
      */
-    protected function createStorageItem(int $storage_id, Product $product, $count): StorageProductInterface
+    protected function createStorageItem(int $storage_id, ProductInterface $product, $count): StorageProductInterface
     {
         return CartStorageItem::create([
             'cart_id' => $storage_id,

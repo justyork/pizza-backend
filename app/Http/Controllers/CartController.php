@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
-use App\Delivery;
+use App\DeliveryInterface;
 use App\Order;
-use App\Product;
+use App\ProductInterface;
 use Facade\FlareClient\Http\Exceptions\NotFound;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -21,7 +21,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::find($request->id);
+        $product = ProductInterface::find($request->id);
         if ($product) {
             Cart::add($product, $request->count ?? 1);
         } else {
@@ -31,7 +31,7 @@ class CartController extends Controller
 
     public function delivery(Request $request)
     {
-        $delivery = Delivery::where('id', $request->id)->first();
+        $delivery = DeliveryInterface::where('id', $request->id)->first();
         Cart::delivery($delivery);
     }
 

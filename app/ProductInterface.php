@@ -5,9 +5,10 @@ namespace App;
 use App\Helpers\PriceHelper;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model implements \App\Cart\Product
+class ProductInterface extends Model implements \App\Cart\ProductInterface
 {
     use PriceHelper;
+
     public function toArray()
     {
         return [
@@ -34,7 +35,7 @@ class Product extends Model implements \App\Cart\Product
 
     public function childrens()
     {
-        return $this->hasMany(Product::class, 'parent_id', 'id');
+        return $this->hasMany(ProductInterface::class, 'parent_id', 'id');
     }
 
     public static function scopeParents($query)

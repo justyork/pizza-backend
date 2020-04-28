@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use App\Cart;
-use App\Product;
+use App\ProductInterface;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\DataPreload;
 use Tests\TestCase;

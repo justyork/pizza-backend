@@ -1,7 +1,5 @@
 <?php
 
-use App\Cart;
-use App\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
 
 Route::prefix('/api')->group(function (){
 

@@ -17,11 +17,11 @@ abstract class CartOperations extends CartFetch
 
 
     /** Add item in cart
-     * @param Product $product
+     * @param ProductInterface $product
      * @param int $count
      * @return void
      */
-    public static function add(Product $product, int $count = 1): void
+    public static function add(ProductInterface $product, int $count = 1): void
     {
         static::getInstance()->cartItems[$product->getId()] = new CartItem($product, $count);
     }

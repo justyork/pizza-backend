@@ -12,7 +12,7 @@ class DeliverySeeder extends Seeder
     public function run()
     {
 
-        factory(\App\Delivery::class)->createMany([
+        factory(\App\DeliveryInterface::class)->createMany([
             ['title' => 'Take away', 'price' => 0, 'free_from' => 0],
             ['title' => 'Standart delivery', 'price' => 150, 'free_from' => 1000,]
         ]);

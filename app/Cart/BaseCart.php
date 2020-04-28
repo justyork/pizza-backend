@@ -14,7 +14,7 @@ namespace App\Cart;
 abstract class BaseCart extends CartOperations
 {
 
-    /** @var Delivery */
+    /** @var DeliveryInterface */
     protected $delivery;
 
     /** Get product price
@@ -31,10 +31,10 @@ abstract class BaseCart extends CartOperations
     }
 
     /** get or set delivery
-     * @param Delivery $delivery
-     * @return \App\Delivery|void
+     * @param DeliveryInterface $delivery
+     * @return \App\DeliveryInterface|void
      */
-    public static function delivery(Delivery $delivery = null)
+    public static function delivery(DeliveryInterface $delivery = null)
     {
         $cart = static::getInstance();
         if ($delivery) {

@@ -9,7 +9,7 @@ namespace App\Cart\storage;
 
 
 use App\Cart\CartItem;
-use App\Cart\Product;
+use App\Cart\ProductInterface;
 
 class StorageProduct extends CartItem
 {
@@ -19,9 +19,9 @@ class StorageProduct extends CartItem
     /**
      * StorageProduct constructor.
      * @param StorageProductInterface $storageProduct
-     * @param Product $product
+     * @param ProductInterface $product
      */
-    public function __construct(StorageProductInterface $storageProduct, Product $product)
+    public function __construct(StorageProductInterface $storageProduct, ProductInterface $product)
     {
         parent::__construct($product, $storageProduct->getCount());
         $this->product = $product;

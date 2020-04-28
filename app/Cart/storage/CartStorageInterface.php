@@ -8,7 +8,7 @@
 namespace App\Cart\storage;
 
 
-use App\Cart\Delivery;
+use App\Cart\DeliveryInterface;
 
 interface CartStorageInterface
 {
@@ -29,9 +29,9 @@ interface CartStorageInterface
     public function getProducts(): ?array;
 
     /** Load delivery
-     * @return Delivery|null
+     * @return DeliveryInterface|null
      */
-    public function getDelivery(): ?Delivery;
+    public function getDelivery(): ?DeliveryInterface;
 
     /** Clear cart
      * @return void

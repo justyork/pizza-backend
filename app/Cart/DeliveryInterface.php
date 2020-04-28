@@ -13,13 +13,13 @@ use PHPUnit\Framework\IncompleteTest;
  * Interface Delivery
  * @package App\Cart
  */
-interface Delivery
+interface DeliveryInterface
 {
 
     /**
      * @return int
      */
-    public function getPrice(): int ;
+    public function getPrice(): int;
 
     /**
      * @return string

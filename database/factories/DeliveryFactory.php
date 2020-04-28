@@ -4,10 +4,10 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(\App\Delivery::class, function (Faker $faker) {
+$factory->define(\App\DeliveryInterface::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence,
         'price' => $faker->numberBetween(50, 200),
-        'free_from' =>  $faker->numberBetween(500, 2000),
+        'free_from' => $faker->numberBetween(500, 2000),
     ];
 });

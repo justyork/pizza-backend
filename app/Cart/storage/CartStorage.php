@@ -8,17 +8,17 @@
 namespace App\Cart\storage;
 
 
-use App\Cart\Delivery;
-use App\Cart\Product;
+use App\Cart\DeliveryInterface;
+use App\Cart\ProductInterface;
 
 abstract class CartStorage extends CartStorageBase
 {
     /**
-     * @param Product $product
+     * @param ProductInterface $product
      * @param int $count
      * @return void
      */
-    public static function add(Product $product, int $count = 1): void
+    public static function add(ProductInterface $product, int $count = 1): void
     {
         $cart = static::getInstance();
 
@@ -49,7 +49,7 @@ abstract class CartStorage extends CartStorageBase
         static::getInstance()->storage = null;
     }
 
-    public static function delivery(Delivery $delivery = null)
+    public static function delivery(DeliveryInterface $delivery = null)
     {
         static::getInstance()->storage->setDelivery($delivery->getId());
 

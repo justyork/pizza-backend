@@ -5,7 +5,7 @@ namespace App;
 use App\Helpers\PriceHelper;
 use Illuminate\Database\Eloquent\Model;
 
-class Delivery extends Model implements \App\Cart\Delivery
+class DeliveryInterface extends Model implements \App\Cart\DeliveryInterface
 {
 
     use PriceHelper;

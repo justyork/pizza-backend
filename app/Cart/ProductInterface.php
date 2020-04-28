@@ -8,7 +8,7 @@
 namespace App\Cart;
 
 
-interface Product
+interface ProductInterface
 {
     /**
      * @return string

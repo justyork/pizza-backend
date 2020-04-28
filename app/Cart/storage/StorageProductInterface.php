@@ -8,7 +8,7 @@
 namespace App\Cart\storage;
 
 
-use App\Cart\Product;
+use App\Cart\ProductInterface;
 
 interface StorageProductInterface
 {
@@ -30,7 +30,7 @@ interface StorageProductInterface
     /**
      * @return int
      */
-    public function getProduct(): Product;
+    public function getProduct(): ProductInterface;
 
     /**
      * Remove storage product

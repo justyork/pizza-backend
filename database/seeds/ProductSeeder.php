@@ -30,13 +30,13 @@ class ProductSeeder extends Seeder
         }
 
         $category = \App\Category::firstOrCreate(['title' => 'Drinks']);
-        \App\Product::create([
+        \App\ProductInterface::create([
             'title' => 'Coca-cola, 0,5 l',
             'price' => 120,
             'image' => 'products/8.jpg',
             'category_id' => $category->id,
         ]);
-        \App\Product::create([
+        \App\ProductInterface::create([
             'title' => 'Capuchino,  0,3 l',
             'price' => 300,
             'image' => 'products/9.jpeg',
@@ -54,13 +54,13 @@ class ProductSeeder extends Seeder
         ];
         $data['image'] = 'products/'.$data['image'];
 
-        $product = \App\Product::create($data);
+        $product = \App\ProductInterface::create($data);
         foreach ($prices as $size => $price) {
             $data['price'] = $price;
             $data['size'] = $size;
             $data['parent_id'] = $product->id;
 
-            \App\Product::create($data);
+            \App\ProductInterface::create($data);
         }
 
     }

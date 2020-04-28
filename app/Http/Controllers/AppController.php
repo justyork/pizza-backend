@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Category;
-use App\Delivery;
-use App\Product;
+use App\DeliveryInterface;
+use App\ProductInterface;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
@@ -19,7 +19,7 @@ class AppController extends Controller
     {
         $euro = 1.08;
         return response([
-            'delivery' => Delivery::all()->toArray(),
+            'delivery' => DeliveryInterface::all()->toArray(),
             'euro' => $euro,
             'products' => Category::all()->toArray(),
             'cart' => Cart::getArray(),

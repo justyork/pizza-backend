@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-use App\Product;
 use Closure;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Schema\SQLiteBuilder;

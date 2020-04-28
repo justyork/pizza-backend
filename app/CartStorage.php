@@ -2,10 +2,8 @@
 
 namespace App;
 
-use App\Cart\CartItem;
-use App\Cart\Delivery;
+use App\Cart\DeliveryInterface;
 use App\Cart\storage\CartStorageInterface;
-use App\Cart\storage\StorageProductInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,9 +18,9 @@ class CartStorage extends Model implements CartStorageInterface
     {
         if (Auth::check()) {
             return Client::current()->cart;
-        } else {
-            return Visitor::current()->loadCart();
         }
+
+        return Visitor::current()->loadCart();
     }
 
     /**
@@ -38,7 +36,7 @@ class CartStorage extends Model implements CartStorageInterface
      */
     public function delivery()
     {
-        return $this->hasOne(\App\Delivery::class, 'id', 'delivery_id');
+        return $this->hasOne(\App\DeliveryInterface::class, 'id', 'delivery_id');
     }
 
 
@@ -62,7 +60,7 @@ class CartStorage extends Model implements CartStorageInterface
     /**
      * @inheritDoc
      */
-    public function getDelivery(): ?Delivery
+    public function getDelivery(): ?DeliveryInterface
     {
         return $this->delivery ?? null;
     }
@@ -86,7 +84,7 @@ class CartStorage extends Model implements CartStorageInterface
 
     public static function createNew()
     {
-        return CartStorage::create(['is_sold' => 0]);
+        return self::create(['is_sold' => 0]);
     }
 
     /**

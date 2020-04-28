@@ -13,10 +13,10 @@ class CartItem
     /** @var int */
     protected $count;
 
-    /** @var Product */
+    /** @var ProductInterface */
     protected $product;
 
-    public function __construct(\App\Product $product, int $count = 1)
+    public function __construct(\App\ProductInterface $product, int $count = 1)
     {
         $this->product = $product;
         $this->count = $count;

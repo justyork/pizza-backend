@@ -9,8 +9,8 @@ namespace Tests;
 
 
 use App\Category;
-use App\Delivery;
-use App\Product;
+use App\DeliveryInterface;
+use App\ProductInterface;
 use Illuminate\Foundation\Testing\WithFaker;
 
 trait DataPreload
@@ -24,8 +24,8 @@ trait DataPreload
     protected function loadProducts()
     {
         $this->category = factory(Category::class)->create();
-        $this->product = factory(Product::class)->create(['category_id' => $this->category->id]);
-        $this->subproduct = factory(Product::class)->create([
+        $this->product = factory(ProductInterface::class)->create(['category_id' => $this->category->id]);
+        $this->subproduct = factory(ProductInterface::class)->create([
             'category_id' => $this->category->id,
             'parent_id' => $this->product->id
         ]);
@@ -33,6 +33,6 @@ trait DataPreload
 
     protected function loadDelivery()
     {
-        $this->delivery = factory(Delivery::class)->create();
+        $this->delivery = factory(DeliveryInterface::class)->create();
     }
 }
